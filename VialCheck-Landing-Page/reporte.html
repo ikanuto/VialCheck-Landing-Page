@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VialCheck - Nuevo Reporte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reporte.css">
+</head>
+<body>
+
+    <nav class="topheader">
+        <a href="index.html" class="logo">
+            <img height="50" width="auto" src="img/Logo VialCheck.png" alt="Logo VialCheck" />
+            <span class="logo-texto">VialCheck</span>
+        </a>
+        <ul class="Menu-Horizontal">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#mapa">Mapa de Incidencias</a></li>
+            <li><a href="#" class="btn-login">Iniciar Sesión</a></li>
+            <li><a href="#" class="btn-registro">Registrarse</a></li>
+        </ul>
+    </nav>
+
+    <main class="contenedor-desktop" id="pantalla-formulario">
+        
+        <section class="columna-mapa">
+            <div class="info-previa">
+                <h2>Ubicación del Incidente</h2>
+                <p>Ayúdanos a localizar el problema exacto para que las cuadrillas de la municipalidad lleguen más rápido.</p>
+            </div>
+            
+            <div class="caja-ubicacion-actual">
+                <p id="texto-ubicacion" class="texto-esperando">Esperando ubicación...</p>
+            </div>
+
+            <button type="button" class="btn-azul-secundario" id="btn-gps">
+                Detectar mi ubicación automática
+            </button>
+
+            <div class="divisor-opcion">
+                <span>o</span>
+            </div>
+
+            <div class="grupo-form-manual">
+                <label for="ubicacion-manual">Ingresa la dirección manualmente</label>
+                <input type="text" id="ubicacion-manual" placeholder="Ej. Av. Huaylas cuadra 10, Chorrillos">
+            </div>
+        </section>
+
+        <section class="columna-formulario">
+            <h2>Detalles del Problema</h2>
+            <p class="subtitulo-form">Completa los datos para generar la alerta oficial.</p>
+            
+            <form id="form-reporte">
+                <div class="grupo-form">
+                    <label for="categoria">¿Qué problema deseas reportar?</label>
+                    <select id="categoria" required>
+                        <option value="" disabled selected>Ej. Bache / Obstáculo en vía / otro.</option>
+                        <option value="bache">Bache o hueco</option>
+                        <option value="semaforo">Semáforo inoperativo</option>
+                        <option value="senalizacion">Falta de señalización</option>
+                        <option value="alumbrado">Alumbrado público fallando</option>
+                    </select>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="tiempo">¿Desde cuándo observas este problema?</label>
+                    <select id="tiempo" required>
+                        <option value="" disabled selected>Ej. Hoy / Hace meses</option>
+                        <option value="hoy">Hoy</option>
+                        <option value="semana">Hace una semana</option>
+                        <option value="mes">Hace un mes o más</option>
+                    </select>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="descripcion">Descripción detallada</label>
+                    <textarea id="descripcion" rows="4" placeholder="Ej. Hay un bache profundo en el carril derecho que daña los autos..." required></textarea>
+                </div>
+
+                <div class="grupo-form">
+                    <label>Evidencia Fotográfica</label>
+                    <input type="file" id="foto-evidencia" accept="image/*" class="input-archivo-oculto">
+                    <label for="foto-evidencia" class="area-subida-foto">
+                        <span id="texto-archivo" class="texto-foto">Haz clic aquí para subir una foto </span>
+                    </label>
+                </div>
+
+                <div id="msg-error" class="alerta alerta-error">Error: Por favor, completa todos los campos.</div>
+                <div id="msg-exito" class="alerta alerta-exito">¡Validación correcta! Procesando...</div>
+
+                <button type="submit" class="btn-naranja-principal">Enviar Reporte Oficial</button>
+            </form>
+        </section>
+    </main>
+
+    <main class="contenedor-confirmacion" id="pantalla-confirmacion" style="display: none;">
+        <div class="tarjeta-exito">
+            <div class="circulo-check">✔️</div>
+            <h2>¡Reporte enviado con éxito!</h2>
+            <p>Tu alerta ha sido registrada y enviada a la municipalidad. Recibirás una notificación cuando sea atendida.</p>
+            <div class="grupo-botones-exito">
+                <a href="historial.html" class="btn-naranja-principal" style="text-align: center; text-decoration: none; display: block;">Ver mi reporte</a>
+                <button class="btn-azul-secundario" onclick="location.reload()">Hacer otro reporte</button>
+                <a href="index.html" class="enlace-volver">Volver al Menú Principal</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/reporte.js"></script>
+</body>
+</html>

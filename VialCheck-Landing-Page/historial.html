@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VialCheck - Historial de Reportes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/historial.css">
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <nav class="topheader">
+        <a href="index.html" class="logo">
+            <img height="50" width="auto" src="img/Logo VialCheck.png" alt="Logo VialCheck" />
+            <span class="logo-texto">VialCheck</span>
+        </a>
+        <ul class="Menu-Horizontal">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="reporte.html">Hacer un Reporte</a></li>
+            <li><a href="#" style="color: #FF6B00; font-weight: 700;">Mis Reportes</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor Principal Desktop -->
+    <main class="contenedor-desktop">
+        
+        <!-- Columna Izquierda: Lista de Reportes -->
+        <section class="columna-lista">
+            <div class="cabecera-lista">
+                <h2>Historial de Reportes</h2>
+                
+                <!-- Filtros -->
+                <div class="filtros">
+                    <button class="btn-filtro activo">Todos <span class="badge">3</span></button>
+                    <button class="btn-filtro">Pendientes <span class="badge badge-naranja">2</span></button>
+                    <button class="btn-filtro">Solucionados <span class="badge badge-verde">1</span></button>
+                </div>
+            </div>
+
+            <!-- Tarjetas de Reportes (Ahora se llenarán solas con JS) -->
+            <div class="lista-tarjetas" id="contenedor-lista-tarjetas">
+                <!-- Aquí aparecerá el mensaje de vacío o las tarjetas generadas -->
+            </div>
+        </section>
+
+        <!-- Columna Derecha: Reporte Completo -->
+        <section class="columna-detalle">
+            <h2 class="titulo-detalle">Reporte Completo</h2>
+            
+            <div class="detalle-contenido" id="vista-detalle" style="display: none;">
+                <!-- Foto del incidente -->
+                <div class="foto-incidente">
+                    <img src="img/Logo VialCheck.png" alt="Foto del reporte" id="det-foto">
+                </div>
+
+                <!-- Tarjeta Azul de Datos -->
+                <div class="tarjeta-datos-azul">
+                    <p class="det-num" id="det-num">-</p>
+                    
+                    <div class="fila-dato">
+                        <p><strong>Dirección:</strong> <span id="det-dir">-</span></p>
+                    </div>
+                    <div class="fila-dato">
+                        <p><strong>Hora:</strong> <span id="det-hora">-</span></p>
+                    </div>
+                    <div class="fila-dato">
+                        <p><strong>Estado:</strong> <span id="det-estado" style="color: #F59E0B; font-weight: bold;">-</span></p>
+                    </div>
+                    <div class="fila-dato">
+                        <p><strong>Tipo de incidencia:</strong> <span id="det-tipo">-</span></p>
+                    </div>
+                    <div class="fila-dato">
+                        <p><strong>Visto:</strong> <span id="det-visto">-</span></p>
+                    </div>
+
+                    <div class="caja-descripcion">
+                        <p class="titulo-desc">Descripción del ciudadano:</p>
+                        <div class="texto-desc-blanco">
+                            <p id="det-desc">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="botones-accion-detalle">
+                    <button class="btn-naranja-principal">Ver en el Mapa</button>
+                    <button class="btn-rojo-eliminar" onclick="borrarHistorial()">Eliminar Todos</button>
+                </div>
+            </div>
+        </section>
+        </section>
+
+    </main>
+
+    <script src="js/historial.js"></script>
+</body>
+</html>
